@@ -41,7 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: const EdgeInsets.only(top: 20.0, bottom: 25.0),
             child: Row(
               children: <Widget>[
-                Text("Covid-19")
+                Text("Covid-19",
+                style: TextStyle(color: Colors.white,
+                fontSize: 28.0),)
               ],
             ),
           )
