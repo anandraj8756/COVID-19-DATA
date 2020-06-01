@@ -23,10 +23,191 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     ),
     body: ListView(
-      children: <Widget>[_header()],
+      children: <Widget>[_header(), _prevention(), _banner()],
     ),
+
+    bottomNavigationBar: _bottomNavigationBar(),
     );
       
+    }
+
+    Widget _bottomNavigationBar() {
+      return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        height: 22.0,
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(height: 40.0, width: 70.0,
+            decoration: BoxDecoration(color: Color(0XFF4C79FF),
+            borderRadius: BorderRadius.circular(20.0)),
+            child: Icon(
+              Icons.home,
+              color: Colors.white,
+
+            ),
+            ),
+            Container(
+              height: 40.0,
+              width: 70.0,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
+             
+              child: Icon(
+                Icons.insert_chart,
+                color: Color(0XFF999FbF),
+
+            ),
+            ),
+            Container(
+              height: 40.0,
+              width: 70.0,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
+             
+              child: Icon(
+                Icons.library_books,
+                color: Color(0XFF999FbF),
+
+            ),
+            ),
+            Container(
+              height: 40.0,
+              width: 70.0,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(20.0)),
+             
+              child: Icon(
+                Icons.report,
+                color: Color(0XFF999FbF),
+
+            ),
+            ),
+          ],
+        ),
+
+      );
+    }
+
+    Widget _banner() {
+      return Container(
+        margin: EdgeInsets.only(top: 25.0),
+        height: 140.0,
+        child: Stack(children: <Widget>[
+          Container(
+            margin: EdgeInsets.all(10.0),
+            height: 140.0,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [Color(0XFFAEA1E5), Color(0XFF5649E)]),
+              borderRadius: BorderRadius.circular(18.0)
+              
+            ),
+            child: Container(
+              margin: EdgeInsets.only(left: 130.0), 
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                Padding(padding: EdgeInsets.only(left: 25.0, top: 15.0, bottom: 5.0),  
+                child: Text("Do your own test", 
+                style: TextStyle(color: Colors.white, fontSize: 25.0, fontWeight: FontWeight.bold)
+                ),
+                ),
+                Padding(
+                      padding: const EdgeInsets.only(left: 25.0, right: 20.0),
+                      child: Text(
+                        "Follow the instructions to do your own test.",
+                        style: TextStyle(
+                            fontSize: 16.0, height: 1.3, color: Colors.white),
+                      ),
+                    )
+                ],
+              ),
+              )
+
+          ),
+          Positioned(
+            child: Image(
+              image: AssetImage("assets/lady.png"),
+              height: 120.0,
+              ),
+              bottom: 12.0,
+              left: 20.0,
+              )
+        ]
+        ),
+
+      );
+    }
+
+    Widget _prevention() {
+
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(
+              "Prevention", style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),)
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Container(
+                child: Column(children: <Widget>[
+                Image(
+                  image: AssetImage("assets/prevention1.png"),
+                  height: 80.0,
+                  width: 80.0, ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Text(
+                    'Avoid close\n contact',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0 ),
+                  )
+              ],
+              ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 20.0),
+                child: Column(children: <Widget>[
+                Image(
+                  image: AssetImage("assets/prevention2.png"),
+                  height: 80.0,
+                  width: 80.0, ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Text(
+                    'Clear your\n hands often',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0 ),
+                  )
+              ],
+              ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 20.0),
+                child: Column(children: <Widget>[
+                Image(
+                  image: AssetImage("assets/prevention3.png"),
+                  height: 80.0,
+                  width: 80.0, ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  Text(
+                    'Wear a \n facemask',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.0 ),
+                  )
+              ],
+              ),
+              )
+            ],
+          ),
+          ],
+      );
     }
 
     Widget _header() {
@@ -88,6 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 20.0),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               FlatButton.icon(
                 padding: 
